@@ -40,20 +40,31 @@ Som användare vill jag kunna navigera tillbaka till bokningsvyn efter bekräfte
 
 ## Acceptanskriterier
 Som användare vill jag kunna boka datum och tid samt ange antal spelare så att jag kan reservera 1 eller flera baner i bowlinghallen.
+<br>
 -Blankett med inputfält för respektive parameter där användaren kan ange bokningsönskemål
 
 Som användare vill jag kunna välja skostorlek för varje spelare så varje spelare får skor som passar.
+<br>
 -Sektion där användaren kan lägga till och ange skostorlek för respektive spelare
+<br>
 -Ifall antalet spelare och skor inte överensstämmer vid försök till bokning så visas ett felmeddelande
 
 Som användare vill jag kunna ta bort ett fält för skostorlek om jag råkade klicka i ett för mycket så jag inte boka skor i onödan.
+<br>
 -En knapp förknippad med respektive skofält som man kan klicka på för att ta bort ett par skor
 
 Som användare vill jag kunna skicka iväg min reservation och få tillbaka ett ett bokningsnummer och totalsumma så jag vet hur mycket jag ska betala. (120 kr / person + 100 kr / bana).
+<br>
 -En knapp som samlar all data från inputfälten, spara dessa i ett object och gör en post request till APIn
+<br>
 -En bekräftelsesida där tid, antal spelare, antal banor samt bokningsnummer och pris visas
+<br>
 -Ifall alla fält inte är ifyllda visas ett felmeddelande
+<br>
 -Ifall antalet spelare överstiger maxantalet för de antal banor man försöker boka så visas ett felmeddelande
+<br>
 
 Som användare vill jag kunna navigera tillbaka till bokningsvyn efter bekräftelse.
+<br>
 -På bekräftelsesidan ska det finnas en knapp som leder användaren tillbaka till bokningssidan
+<br>
