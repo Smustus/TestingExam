@@ -2,15 +2,22 @@ name: runTests
 
 on:
   push:
-    branches:
-      - 'main'
+    branches: [ "main" ]
   pull_request:
-    branches:
-      - 'main'
+    branches: [ "main" ]
 
 jobs:
   tests: 
     runs-on: ubuntu-latest
 
     steps:
-      - run: npm test
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22.1.0
+      - name: install dependancies
+        run: npm ci
+      - name: run tests
+        run: npm test
