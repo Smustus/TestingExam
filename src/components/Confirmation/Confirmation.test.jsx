@@ -6,7 +6,7 @@ describe('Confirmation', () => {
     render(<Confirmation confirmationDetails={{ when: "2024-05-24T22:10", lanes: "1", people: "2", shoes: ['25', '55'], price: 400, id: "STR6571SPLY", active: true }}/>)
   });
 
-  test('Test if data is tranfered correctly into each element', () => {
+  test('Test if data is transferred correctly into each element', () => {
 
     expect(screen.getByRole('heading', { name: /see you soon!/i })).toBeInTheDocument();
 

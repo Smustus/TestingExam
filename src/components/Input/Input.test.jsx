@@ -3,7 +3,7 @@ import Input from './Input';
 
 describe('Input', () => {
 
-  test('Test if data is tranfered and added correctly', () => {
+  test('Test if data is transferred and added correctly', () => {
     render(<Input 
       label="testLabel"
       type="text"

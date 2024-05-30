@@ -46,7 +46,7 @@ describe('Booking', () => {
     const shoeBtn = await within(shoeContainer).findAllByRole('button')
     expect(shoeBtn.length).toBe(2);
     
-    //Click the button and see if the shoes are removed
+    //Click the associated removal button and see if the shoes are removed
     fireEvent.click(shoeBtn[0]);
     const shoeBtnsAfter = await within(shoeContainer).findAllByRole('button')
     expect(shoeBtnsAfter.length).toBe(1);
@@ -62,24 +62,21 @@ describe('Booking', () => {
     const confirmBtn = screen.getByText(/stri/i);
     fireEvent.click(confirmBtn);
     
-    await waitFor(() => {
-      const heading = screen.getAllByRole('heading');
-      expect(heading[0]).toHaveTextContent(/see you/i);
-    });
+    const headingConf = await screen.findByRole('heading', {name: /see you/i});
+    expect(headingConf).toBeInTheDocument();
 
     //Check if price and booking id is displayed on the confirmation page after sending a booking request
     const price = screen.getByText(/2560/);
     expect(price).toBeInTheDocument();
-    const inputsConfirmpage = await screen.findAllByTestId('input');
-    expect(inputsConfirmpage[3].value).toBe('STR82H3LL')
+    const bookingId = screen.getByDisplayValue(/STR82H3LL/);
+    expect(bookingId).toBeInTheDocument();
 
     //Check if the return btn returns you to booking page
     const returnBtn = screen.getByRole('button');
     fireEvent.click(returnBtn);
-    await waitFor(() => {
-      const heading = screen.getAllByRole('heading');
-      expect(heading[0]).toHaveTextContent(/booking/i);
-    });
+
+    const headingBook = await screen.findByRole('heading', {name: /booking/i});
+    expect(headingBook).toBeInTheDocument();
   });
 
 
@@ -175,7 +172,7 @@ describe('Booking', () => {
   });
 
   
-  test('Test if the user can make a reservation if the amount of people doesnt match the amount of shoes', async () => {
+  test('Test if the user can make a reservation if the amount of players doesnt match the amount of shoes', async () => {
 
     await fillInputFields(4)
 
@@ -189,7 +186,7 @@ describe('Booking', () => {
   });
 
 
-  test('Test if the user can make a reservation if the amount of people exceeds the maximum amount per lane', async () => {
+  test('Test if the user can make a reservation if the amount of players exceeds the maximum amount per lane', async () => {
 
     await fillInputFields(6) //1 lane stated
 
